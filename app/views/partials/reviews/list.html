@@ -1,0 +1,11 @@
+<section  data-ng-init="find()">
+	<ul class="reviews unstyled">
+		<li data-ng-repeat="review in reviews">
+			<span>{{review.created | date:'medium'}}</span> /
+			<span>{{review.user.name}}</span>
+			<h2><a data-ng-href="/reviews/{{review._id}}">{{review.title}}</a></h2>
+			<div>{{review.content}}</div>
+		</li>
+	</ul>
+	<h1 data-ng-hide="!reviews || reviews.length">No reviews yet. <br> Why don't you <a href="/reviews/create">Create One</a>?</h1>
+</section>

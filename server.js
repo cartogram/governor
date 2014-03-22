@@ -3,6 +3,7 @@
 var express = require('express'),
     path = require('path'),
     fs = require('fs'),
+    passport = require('passport'),
     mongoose = require('mongoose');
 
 /**
@@ -39,6 +40,7 @@ require('./lib/config/express')(app);
 
 // Routing
 require('./lib/routes')(app);
+require('./lib/routes/users')(app, passport);
 
 // Start server
 app.listen(config.port, function () {

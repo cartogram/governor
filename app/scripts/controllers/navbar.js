@@ -3,7 +3,7 @@
 angular.module('governorApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
+      'title': 'Governor',
       'link': '/'
     }, {
       'title': 'Settings',

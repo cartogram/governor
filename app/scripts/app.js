@@ -25,6 +25,28 @@ angular.module('governorApp', [
         controller: 'SettingsCtrl',
         authenticate: true
       })
+      .when('/reviews', {
+        templateUrl: 'partials/reviews',
+        controller: 'ReviewsCtrl'
+      })
+      .when('/reviews/create', {
+        templateUrl: 'partials/reviews/create',
+        controller: 'ReviewsCtrl',
+        authenticate: true
+      })
+      .when('/reviews/:reviewId/edit', {
+        templateUrl: 'partials/reviews/edit',
+        controller: 'ReviewsCtrl',
+        authenticate: true
+      })
+      .when('/reviews/list', {
+        templateUrl: 'partials/reviews/list',
+        controller: 'ReviewsCtrl'
+      })
+      .when('/reviews/:reviewId', {
+        templateUrl: 'partials/reviews/view',
+        controller: 'ReviewsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

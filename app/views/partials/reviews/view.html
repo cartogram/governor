@@ -1,0 +1,14 @@
+<section data-ng-init="findOne()">
+    <span>{{review.created | date:'medium'}}</span> /
+    <span>{{review.user.name}}</span>
+    <h2>{{review.title}}</h2>
+    <div data-ng-show="global.user._id == review.user._id">
+        <a class="btn" href="/#!/reviews/{{review._id}}/edit">
+        	<i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn" data-ng-click="remove();">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+    <div>{{review.content}}</div>
+</section>
