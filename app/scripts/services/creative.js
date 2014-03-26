@@ -1,6 +1,13 @@
 'use strict';
 
 angular.module('governorApp')
-  .service('Creative', function Creative() {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+.factory('Creatives', function ($resource) {
+    // Public API here
+    return $resource('/api/creatives/:creativeId', {
+      articleId: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
   });

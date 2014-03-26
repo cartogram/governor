@@ -1,0 +1,182 @@
+/*------------------------------------*\
+	$FORMS
+\*------------------------------------*/
+/**
+ *
+ * Demo: jsfiddle.net/inuitcss/MhHHU
+ *
+ */
+ fieldset{
+ }
+
+
+/**
+ * Text inputs
+ *
+ * Instead of a `[type]` selector for each kind of form input, we just use a
+ * class to target any/every one, e.g.:
+   <input type=text class=text-input>
+   <input type=email class=text-input>
+   <input type=password class=text-input>
+ *
+ */
+ .text-input,
+ textarea{
+	/**
+	 * Style these via your theme stylesheet.
+	 */
+	 width:100%;
+	 border:none;
+	 background:$white;
+	 padding:1.5em;
+	 -webkit-font-smoothing: antialiased;
+	 @include font-size($input-size);
+
+	}
+
+	.text-input {
+		text-align: center;
+		border-left:1px solid transparent;
+		border-right:1px solid transparent;
+		border-top:1px solid transparent;
+		border-bottom:1px solid transparent;
+		@include transition(border $base-transition-speed);
+
+		&:hover {
+			@include transition(border $base-transition-speed);
+			border-color:$teal;
+		}
+
+		&:focus {
+			@include transition(border $base-transition-speed);
+			border-color:$sea;
+		}
+		.has-error & {
+			@include transition(border $base-transition-speed);
+			border-color:$pomm;
+			color:$pomm;
+		}
+		.has-success & {
+			@include transition(border $base-transition-speed);
+			color:$sea;
+		}
+	}
+
+/**
+ * Group sets of form fields in a list, e.g.:
+ *
+   <ul class=form-fields>
+	   <li>
+		   <label />
+		   <input />
+	   </li>
+	   <li>
+		   <label />
+		   <select />
+	   </li>
+	   <li>
+		   <label />
+		   <input />
+	   </li>
+   </ul>
+ *
+ */
+ .form-fields{
+ 	&.collapse {
+ 		padding-top:$base-spacing-unit;
+ 		> li {
+ 			margin:0;
+ 			background:$white;
+ 			border-bottom:1px solid $grey;
+ 			border-left:1px solid $grey-medium;
+ 			border-right:1px solid $grey-medium;
+ 		}
+ 		> li:first-child {
+ 			border-top:1px solid $grey-medium;
+ 		}
+ 		> li:last-child {
+ 			border-bottom:1px solid $grey-medium;
+ 		}
+ 	}
+
+ }
+
+ .form-fields > li.form__submit{
+ 	padding:$base-spacing-unit  $base-spacing-unit * 2;
+ }
+.form-fields > li.form__footer{
+ 	padding:$base-spacing-unit  $base-spacing-unit * 2;
+ 	p {
+ 		margin:0;
+ 	}
+ }
+
+
+/**
+ * Labels
+ *
+ * Define a `.label` class as well as a `label` element. This means we can apply
+ * label-like styling to meta-labels for groups of options where a `label`
+ * element is not suitable, e.g.:
+ *
+   <li>
+	   <span class=label>Select an option below:</span>
+	   <ul class="multi-list  four-cols">
+		   <li>
+			   <input /> <label />
+		   </li>
+		   <li>
+			   <input /> <label />
+		   </li>
+		   <li>
+			   <input /> <label />
+		   </li>
+		   <li>
+			   <input /> <label />
+		   </li>
+	   </ul>
+   </li>
+ *
+ */
+ label,
+ .label{
+ 	display:block;
+ }
+
+%form__instruction {
+	font-weight:bold;
+	@include transition(height $base-transition-speed);
+	display:block;
+	padding-left:$base-spacing-unit;
+	padding-right:$base-spacing-unit;
+	border-top:1px solid $grey;
+	background:$grey-light;
+	@include font-size($milli-size);
+}
+
+.form__help{
+	@extend %form__instruction;
+ 	visibility:hidden;
+ 	height:0;
+ 	overflow: hidden;
+ 	color:$sea;
+
+ 	
+ }
+ .text-input:active + .form__help,
+ .text-input:focus + .form__help{
+ 	visibility:visible;
+ 	height:40px;
+ 	padding-top:$half-spacing-unit;
+ 	padding-bottom:$half-spacing-unit;
+ }
+
+
+
+ .form__error {
+ 	@extend %form__instruction;
+ 	padding-top:$half-spacing-unit;
+ 	padding-bottom:$half-spacing-unit;
+ 	color:$pomm;
+ }
+

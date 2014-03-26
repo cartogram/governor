@@ -3,11 +3,8 @@
 angular.module('governorApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Governor',
-      'link': '/'
-    }, {
-      'title': 'Settings',
-      'link': '/settings'
+      'title': 'About',
+      'link': '/about'
     }];
     
     $scope.logout = function() {

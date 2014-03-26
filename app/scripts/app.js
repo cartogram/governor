@@ -47,6 +47,19 @@ angular.module('governorApp', [
         templateUrl: 'partials/reviews/view',
         controller: 'ReviewsCtrl'
       })
+      .when('/creatives', {
+        templateUrl: 'partials/creatives',
+        controller: 'CreativesCtrl'
+      })
+      .when('/creatives/add', {
+        templateUrl: 'partials/creatives/add',
+        controller: 'CreativesCtrl',
+        authenticate: true
+      })
+      .when('/creatives/:creativeId', {
+        templateUrl: 'partials/creatives/view',
+        controller: 'CreativesCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

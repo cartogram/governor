@@ -1,0 +1,26 @@
+%navbar-style {
+	margin:0;
+	@include font-size(13px);
+	letter-spacing: .05em;
+	line-height: 3.5em;
+	a {
+	}
+}
+
+.nav--brand {
+	@extend %navbar-style;	
+}
+
+.nav--global {
+	@extend %navbar-style;
+	text-align:right;
+	li {
+		padding:0 $half-spacing-unit;
+	}
+}
+
+
+.nav--btn {
+	
+	
+}

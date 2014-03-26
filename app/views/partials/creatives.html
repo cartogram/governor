@@ -1,0 +1,11 @@
+<section  data-ng-init="find()">
+	<ul class="creatives unstyled">
+		<li data-ng-repeat="creative in creatives">
+			<span>{{creative.created | date:'medium'}}</span> /
+			<span>{{creative.user.name}}</span>
+			<h2><a data-ng-href="/creatives/{{creative._id}}">{{creative.title}}</a></h2>
+			<div>{{creative.content}}</div>
+		</li>
+	</ul>
+	<h1 data-ng-hide="!creatives || creatives.length">No creatives yet. <br> Why don't you <a href="/creatives/create">Create One</a>?</h1>
+</section>

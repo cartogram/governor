@@ -1,0 +1,70 @@
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * A series of helper classes to use arbitrarily. Only use a helper class if an
+ * element/component doesn’t already have a class to which you could apply this
+ * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
+ * that ruleset as opposed to adding the `.float--left` class to the markup.
+ *
+ * A lot of these classes carry `!important` as you will always want them to win
+ * out over other selectors.
+ */
+
+
+/**
+ * PLacholder
+ */
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; } 
+}
+
+
+/**
+ * Color Setup
+ *
+ * We have a mixin to generate our background and border colors.
+ */
+
+@mixin color-setup($colorname: "black", $color: $black) {
+    /**
+    * Background
+    */
+    .background--#{$colorname}        { background: #{$color}  }
+
+
+    /**
+    * Borders
+    */
+    .border--#{$colorname}       { border:1px solid #{$color}  }
+    .border-right--#{$colorname}       { border-right:1px solid #{$color}  }
+    .border-left--#{$colorname}       { border-left:1px solid #{$color}  }
+    .border-top--#{$colorname}       { border-top:1px solid #{$color}  }
+    .border-bottom--#{$colorname}       { border-bottom:1px solid #{$color}  }
+
+    /**
+    * Color
+    */
+    .color--#{$colorname} { 
+        color:#{$color}  !important;
+        &.btn {
+            color:#{$color} ;
+            &:hover {
+                opacity:0.8;
+            }
+        }
+        p, h2 {
+           color:#{$color};
+        }
+    }
+
+}
+
+
+
+

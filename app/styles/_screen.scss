@@ -1,0 +1,25 @@
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+@include color-setup("white", $color: $white);
+
+body {
+	background:$grey-light;
+}
+
+
+.row {
+	max-width:1200px;
+	width:100%;
+	margin:auto;
+	position:relative;
+}
+
+.section {
+	padding:0 $half-spacing-unit;
+}
+
+.section--mast {
+    padding-top: $base-spacing-unit * 2;
+}

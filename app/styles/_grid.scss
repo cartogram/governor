@@ -1,0 +1,110 @@
+/*------------------------------------*\
+    $GRID EXTRAS
+\*------------------------------------*/
+/**
+ * Mainly based on csswizardry grids at https://github.com/csswizardry/csswizardry-grids/
+ * Growing set of additional classes to build out more complex layouts within the same grid system.
+
+
+/**
+ * Reversed grids allow you to structure your source in the opposite order to
+ * how your rendered layout will appear. Extends `.grid`.
+ */
+.grid--rev{
+    direction:rtl;
+    text-align:left;
+
+    > .grid__item{
+        direction:ltr;
+        text-align:left;
+    }
+}
+
+
+/**
+ * Gutterless grids have all the properties of regular grids, minus any spacing.
+ * Extends `.grid`.
+ */
+.grid--full{
+    margin-left:0;
+
+    > .grid__item{
+        padding-left:0;
+    }
+}
+
+
+/**
+ * Align the entire grid to the right. Extends `.grid`.
+ */
+.grid--right{
+    text-align:right;
+
+    > .grid__item{
+        text-align:left;
+    }
+}
+
+
+/**
+ * Centered grids align grid items centrally without needing to use push or pull
+ * classes. Extends `.grid`.
+ */
+.grid--center{
+    text-align:center;
+
+    > .grid__item{
+        text-align:left;
+    }
+}
+
+
+
+/**
+ * Align grid cells vertically (`.grid--middle` or `.grid--bottom`). Extends
+ * `.grid`.
+ */
+.grid--middle{
+
+    > .grid__item{
+        vertical-align:middle;
+    }
+}
+
+.grid--bottom{
+
+    > .grid__item{
+        vertical-align:bottom;
+    }
+}
+
+
+/**
+ * Create grids with narrower gutters. Extends `.grid`.
+ */
+.grid--narrow{
+    margin-left:-($base-spacing-unit / 2);
+
+    > .grid__item{
+        padding-left:$base-spacing-unit / 2;
+    }
+}
+
+
+/**
+ * Create grids with wider gutters. Extends `.grid`.
+ */
+.grid--wide{
+    margin-left:-($base-spacing-unit * 2);
+
+    > .grid__item{
+        padding-left:$base-spacing-unit * 2;
+    }
+}
+
+/**
+ * Create grids auto grid with for budding items right up to eachother.
+ */
+.grid__item.auto {
+    width:auto;
+}

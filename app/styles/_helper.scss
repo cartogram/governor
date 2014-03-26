@@ -1,0 +1,191 @@
+/*------------------------------------*\
+	$HELPER
+\*------------------------------------*/
+/**
+* A series of helper classes to use arbitrarily. Only use a helper class if an
+* element/component doesn’t already have a class to which you could apply this
+* styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
+* that ruleset as opposed to adding the `.float--left` class to the markup.
+*
+* A lot of these classes carry `!important` as you will always want them to win
+* out over other selectors.
+*/
+
+
+/**
+* Positions
+*/
+
+.relative {
+	position:relative !important;
+}
+
+.centered--v{
+	position:absolute;
+	top:50%;
+	@include transform(translateY(-50%));
+}
+
+.centered--v--h{
+	position:absolute;
+	top:50%;
+	left:50%;
+	@include transform(translate(-50%, -50%));
+}
+
+
+.centered--h{
+	position:absolute !important;
+	left:50%;
+	@include transform(translate(-50%, 0%));
+}
+
+.centered--h--bottom {
+	position:absolute !important;
+	left:50%;
+	top:100%;
+	@include transform(translate(-50%, -100%));
+}
+
+.centered--h--fixed {
+	position:fixed !important;
+	left:50%;
+	@include transform(translate(-50%, 0%));
+}
+
+@if $responsive{
+	@each $state in palm, lap, lap-and-up, portable, desk, desk-wide{
+		@include media-query(#{$state}){
+
+			.centered--v--#{$state}{
+				position:absolute;
+				top:50%;
+				@include transform(translateY(-50%));
+			}
+
+		}
+	}
+}
+
+
+
+/**
+ * Softness (padding)
+ */
+
+ .soft-quarter--left {
+ 	padding-left:$base-spacing-unit / 4;
+ }
+
+ .soft-half-double--top {
+ 	padding-top:$base-spacing-unit * 1.5;
+ }
+ .soft-half-double--bottom {
+ 	padding-bottom:$base-spacing-unit * 1.5;
+ }
+ .soft-half-double--ends {
+ 	padding-top:$base-spacing-unit * 1.5;
+ 	padding-bottom:$base-spacing-unit * 1.5;
+ }
+ .soft-double {
+ 	padding:$base-spacing-unit * 2 !important;
+ }
+ .soft-double--top {
+ 	padding-top:$base-spacing-unit * 2 !important;
+ }
+ .soft-double--bottom {
+ 	padding-bottom:$base-spacing-unit * 2;
+ }
+ .soft-double--left {
+ 	padding-left:$base-spacing-unit * 2;
+ }
+ .soft-double--right {
+ 	padding-right:$base-spacing-unit * 2;
+ }
+ .soft-double--ends {
+ 	padding-top:$base-spacing-unit * 2 !important;
+ 	padding-bottom:$base-spacing-unit * 2 !important;
+ }
+ .soft-double--sides {
+ 	padding-right:$base-spacing-unit * 2;
+ 	padding-left:$base-spacing-unit * 2;
+ }
+
+ .soft-triple--top {
+ 	padding-top:$base-spacing-unit * 3;
+ }
+ .soft-triple--bottom {
+ 	padding-bottom:$base-spacing-unit * 3;
+ }
+ .soft-triple--left {
+ 	padding-left:$base-spacing-unit * 3;
+ }
+ .soft-triple--right {
+ 	padding-right:$base-spacing-unit * 3;
+ }
+ .soft-triple--ends {
+ 	padding-top:$base-spacing-unit * 3 !important;
+ 	padding-bottom:$base-spacing-unit * 3 !important;
+ }
+ .soft-triple--sides {
+ 	padding-right:$base-spacing-unit * 3;
+ 	padding-left:$base-spacing-unit * 3;
+ }
+
+ .soft-triple--sides {
+ 	padding-right:$base-spacing-unit * 3;
+ 	padding-left:$base-spacing-unit * 3;
+ }
+
+ .soft-quadruple--top {
+ 	padding-top:$base-spacing-unit * 4;
+ }
+ .soft-quadruple--ends {
+ 	padding-top:$base-spacing-unit * 4 !important;
+ 	padding-bottom:$base-spacing-unit * 4 !important;
+ }
+
+
+
+ .soft-inside-sides--one-twelfth {
+ 	padding-left:8.333% !important;
+ 	padding-right:8.333% !important;
+ }
+
+
+@if $responsive{
+	@each $state in palm, lap, lap-and-up, portable, desk, desk-wide{
+		@include media-query(#{$state}){
+
+
+			.#{$state}--soft-quadruple--top {
+				padding-top:$base-spacing-unit * 4 !important;
+			}
+		}
+	}
+}
+
+
+/**
+ *  Text Alignment Helpers
+ */
+
+ @if $responsive{
+ 	@each $state in palm, lap, lap-and-up, portable, desk, desk-wide{
+ 		@include media-query(#{$state}){
+ 			.text--center--#{$state} {
+ 				text-align: center !important;
+ 			}
+ 			.text--left--#{$state} {
+ 				text-align: left !important;
+ 			}
+ 			.text--right--#{$state} {
+ 				text-align: right !important;
+ 			}
+ 		}
+ 	}
+ }
+
+
+
+

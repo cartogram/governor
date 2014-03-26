@@ -1,25 +1,16 @@
 @import "compass/css3";
 @import "vars";
 @import "../bower_components/inuit.css/inuit";
-
-
-.container {
-	max-width:1000px;
-	width:100%;
-	margin:auto;
-	position:relative;
-	padding:$base-spacing-unit;
-	border-left:1px solid;
-	border-right:1px solid;
-}
-
-.nav--global {
-	width:60px;
-	position:absolute;
-	top:0;
-	left:-60px;
-	li {
-		display:block;
-
-	}
-}
+@import "govicons";
+@import "mixins";
+@import "helper";
+@import "grid";
+@import "screen";
+@import "header";
+@import "links";
+@import "buttons";
+@import "headings";
+@import "typography";
+@import "forms";
+@import "lists";
+@import "nav";

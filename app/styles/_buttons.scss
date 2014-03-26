@@ -1,0 +1,48 @@
+.btn {
+	color:$primary;
+	background:none;
+	padding-left:1em;
+	padding-right:1em;
+	-webkit-font-smoothing: antialiased;
+	&:hover {
+		color:$secondary;
+	}
+}
+
+.btn--primary {
+	background:$primary;
+	color:$white;
+	@include transition(background $base-transition-speed);
+	&:hover {
+		@include transition(background $base-transition-speed);
+		background:$secondary;
+		color:$white;
+	}
+}
+
+
+.btn--secondary {
+	border:2px solid;
+	font-weight:bold;
+	@include transition(border $base-transition-speed);
+	&:hover {
+		
+	}
+}
+
+.btn--medium {
+	font-size:$input-size;
+	padding-left:2em;
+	padding-right:2em;
+	line-height: 3em;
+	@include transition(border $base-transition-speed);
+	&:hover {
+
+	}
+}
+
+.btn--large {
+	padding-left:1.5em;
+	padding-right:1.5em;
+	font-size:$input-size;
+}
