@@ -1,1 +1,17 @@
-<p>This is the creatives/view view.</p>
+
+<div ng-include="'partials/navbar.html'"></div>
+
+
+<div class="view" ng-init="findOne()">
+    <section class="section section--mast">
+        <div class="row">
+            <div class="grid grid--center">
+                <div class="grid__item text--center five-twelfths lap-seven-twelfths palm-one-whole">
+                    <h1>{{creative.name}}</h1>
+                    <p>{{creative.description}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</div>

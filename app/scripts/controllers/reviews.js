@@ -2,8 +2,10 @@
 
 angular.module('governorApp')
 .controller('ReviewsCtrl', function ($scope, $routeParams, $location, Global, Reviews) {
+	
 	$scope.global = Global;
 
+	console.log($scope.global);
 	$scope.create = function() {
 		var review = new Reviews({
 			title: this.title,

@@ -1,0 +1,25 @@
+<div ng-include="'partials/navbar.html'"></div>
+
+
+<div class="view">
+    <section class="section section--mast">
+        <div class="row">
+            <div class="grid grid--center">
+                <div class="grid__item  one-whole">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section" data-ng-init="find()">
+        <div class="row">
+            <div class="grid ">
+                <div class="grid__item  five-twelfths lap-seven-twelfths palm-one-whole" data-ng-repeat="creative in creatives">
+                    <p>creativeed by {{creative.user.name}} on {{creative.created | date:'medium'}}</p>
+                    <h2><a data-ng-href="/creatives/{{creative._id}}">{{creative.title}}</a></h2>
+                    <div>{{creative.content}}</div>
+                </div>
+            </div>
+        </div>
+        <h1 class="text--center" data-ng-hide="!creatives || creatives.length">No creatives yet. <br> Why don't you <a href="/creatives/create">Create One</a>?</h1>
+    </section>
+</div>

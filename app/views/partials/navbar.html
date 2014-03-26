@@ -13,10 +13,13 @@
 					<li ng-hide="currentUser" ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
 						<a ng-href="{{item.link}}">{{item.title}}</a>
 					</li>
+					<li ng-show="currentUser" ng-class="{active: isActive('/reviews')}"><a href="/reviews">Reviews</a></li>
 					<li ng-show="currentUser" ng-class="{active: isActive('/settings')}"><a href="/settings">{{currentUser.name}}</a></li>
-					<li ng-show="currentUser" ng-class="{active: isActive('/logout')}"><a class="btn btn--small btn--secondary" href="/reviews/create">Create</a></li>
+					<li ng-show="currentUser" ng-class="{active: isActive('/reviews/create')}"><a class="btn btn--small btn--secondary" href="/reviews/create">Create</a></li>
+					<li ng-show="currentUser" ng-class="{active: isActive('/creatives/add')}"><a class=" " href="/creatives/add">Add a Company</a></li>
 					<li ng-hide="currentUser" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
 					<li ng-hide="currentUser" ng-class="{active: isActive('/signup')}"><a class="btn btn--small btn--secondary"  href="/signup">Sign up</a></li>
+
 					<li ng-show="currentUser" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
 					
 				</ul>
