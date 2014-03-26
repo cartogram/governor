@@ -9,8 +9,8 @@
     "angular-cookies": "1.2.11",
     "angular-sanitize": "1.2.11",
     "angular-route": "1.2.11",
-    "inuit.css": "~5.0.1",
-    "angular-animate": "~1.2.14"
+    "angular-animate": "~1.2.14",
+    "inuit.css": "~5.0.1"
   },
   "devDependencies": {
     "angular-mocks": "1.2.11",

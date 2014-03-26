@@ -28,7 +28,7 @@
 	 width:100%;
 	 border:none;
 	 background:$white;
-	 padding:1.5em;
+	 padding:1.34em;
 	 -webkit-font-smoothing: antialiased;
 	 @include font-size($input-size);
 
@@ -60,6 +60,21 @@
 			@include transition(border $base-transition-speed);
 			color:$sea;
 		}
+	}
+	/**
+	* @name Seach Input
+	* @markup
+	*   <form><input type="search" placeholder="Seach Input" /></form>			
+	*/
+	
+	input[type=search] {
+		@include box-sizing(border-box);
+		text-align:left;
+	}
+	input[type=search]::-webkit-search-cancel-button {
+	    -webkit-appearance: searchfield-cancel-button;
+	    margin-right:10px;
+	
 	}
 
 /**
@@ -96,6 +111,12 @@
  		}
  		> li:last-child {
  			border-bottom:1px solid $grey-medium;
+ 		}
+ 	}
+ 	&.collapse--inline {
+ 		>li {
+ 			margin:0;
+ 			display:inline-block;
  		}
  	}
 

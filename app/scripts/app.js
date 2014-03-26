@@ -31,17 +31,13 @@ angular.module('governorApp', [
       })
       .when('/reviews/create', {
         templateUrl: 'partials/reviews/create',
-        controller: 'ReviewsCtrl',
+        controller: 'CreateReviewCtrl',
         authenticate: true
       })
       .when('/reviews/:reviewId/edit', {
         templateUrl: 'partials/reviews/edit',
         controller: 'ReviewsCtrl',
         authenticate: true
-      })
-      .when('/reviews/list', {
-        templateUrl: 'partials/reviews/list',
-        controller: 'ReviewsCtrl'
       })
       .when('/reviews/:reviewId', {
         templateUrl: 'partials/reviews/view',

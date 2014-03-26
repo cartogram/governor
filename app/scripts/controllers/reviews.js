@@ -5,19 +5,7 @@ angular.module('governorApp')
 	
 	$scope.global = Global;
 
-	console.log($scope.global);
-	$scope.create = function() {
-		var review = new Reviews({
-			title: this.title,
-			content: this.content
-		});
-		review.$save(function(response) {
-			$location.path('reviews/' + response._id);
-		});
-
-		this.title = '';
-		this.content = '';
-	};
+	
 
 	$scope.remove = function(review) {
 		if (review) {

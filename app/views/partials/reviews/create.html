@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="grid grid--center">
 				<div class="grid__item text--center five-twelfths lap-seven-twelfths palm-one-whole">
-					<h1 class="gamma">Create a Review</h1>
+					<h1 class="gamma">Search for a creative to review</h1>
 				</div>
 			</div>
 		</div>
@@ -12,11 +12,34 @@
 	<section class="section ">
 		<div class="row">
 			<div class="grid grid--center">
-				<div class="grid__item text--center one-whole">
-					<form role="form" ng-submit="create()" >
+				<div class="grid__item one-whole">
+					<form role="form" novalidate >
 						<ul class="form-fields collapse">
+							
+							<li class="" >
+								<div class="grid grid--full">
+									<div class="grid__item nine-twelfths">
+										<label class="visuallyhidden">Seach</label>
+										<input type="search" class="text-input" ng-model="searchText" id="Search" placeholder="Search for a creative" required/>
+									</div><!--
+									--><div class="grid__item three-twelfths">	
+
+										<button class="btn btn--large btn--primary btn--full" ng-click="search(searchText)">Search</button>
+									</div>
+								</div>		
+
+							</li>
+						</ul>
+						<ul class="list--blocks">
+							<li ng-repeat="creative in creatives">
+								<a>{{creative.name}}</a>
+							</li>
+						</ul>	
+						<p class="soft--top text--center" ng-hide="!creatives || creatives.length">Can't find the creative you are looking for? <a> add a new cretive</a></p>
+
+								<!-- 
 							<li >
-								<label class="visuallyhidden">Email</label>
+								<label class="visuallyhidden">Title</label>
 								<input type="text" class="text-input" ng-model="title" id="title" placeholder="Title" required/>
 							</li>   
 						
@@ -27,7 +50,7 @@
 							<li class="form__submit">
 								<button class="btn btn--large btn--primary btn--full" type="submit">Create</button>
 							</li>
-						</ul>
+						</ul> -->
 					</form>	
 				</div>
 			</div>

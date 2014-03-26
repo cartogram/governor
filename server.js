@@ -40,7 +40,6 @@ require('./lib/config/express')(app);
 
 // Routing
 require('./lib/routes')(app);
-require('./lib/routes/users')(app, passport);
 
 // Start server
 app.listen(config.port, function () {
