@@ -17,7 +17,18 @@ angular.module('governorApp').controller('CreateReviewCtrl', function ($scope, $
 		Creatives.query({q:searchText}, function(creatives) {
 			$scope.creatives = creatives;
 		});
-		console.log(searchText);
+	};
+
+	$scope.start = function(creative) {
+		var review = new Reviews({
+			state: 'draft',
+			creative : creative._id
+		});
+		
+		review.$save(function(response) {
+			$location.path('reviews/' + response._id + '/edit');
+		});
 
 	};
+
 });

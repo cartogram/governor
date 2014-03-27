@@ -32,7 +32,7 @@
 						</ul>
 						<ul class="list--blocks">
 							<li ng-repeat="creative in creatives">
-								<a>{{creative.name}}</a>
+								<a ng-click="start(creative)">{{creative.name}}</a>
 							</li>
 						</ul>	
 						<p class="soft--top text--center" ng-hide="!creatives || creatives.length">Can't find the creative you are looking for? <a> add a new cretive</a></p>

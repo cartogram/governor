@@ -19,6 +19,17 @@ body {
 .section {
 	padding:0 $half-spacing-unit;
 }
+.section--fixed {
+    position:fixed;
+    left:0;
+    right:0;
+    background:$grey-light;
+    z-index: 1;
+    padding:$base-spacing-unit;
+    p {
+        margin:0;
+    }
+}
 
 .section--mast {
     padding-top: $base-spacing-unit * 2;

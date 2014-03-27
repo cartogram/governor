@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('governorApp')
-.controller('ReviewsCtrl', function ($scope, $routeParams, $location, Global, Reviews) {
+.controller('ReviewsCtrl', function ($scope, $routeParams, $location, Global, Reviews, Creatives) {
 	
 	$scope.global = Global;
 
@@ -38,7 +38,9 @@ angular.module('governorApp')
 	$scope.find = function() {
 		Reviews.query(function(reviews) {
 			$scope.reviews = reviews;
+			
 		});
+
 	};
 
 	$scope.findOne = function() {
@@ -46,6 +48,12 @@ angular.module('governorApp')
 			reviewId: $routeParams.reviewId
 		}, function(review) {
 			$scope.review = review;
+			
+			Creatives.get({
+				creativeId: review.creative
+			}, function(creative) {
+				$scope.creative = creative;
+			});
 		});
 	};
 });

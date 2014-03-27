@@ -13,7 +13,8 @@
 	background:$primary;
 	color:$white;
 	@include transition(background $base-transition-speed);
-	&:hover {
+	&:hover,
+	&:focus {
 		@include transition(background $base-transition-speed);
 		background:$secondary;
 		color:$white;
