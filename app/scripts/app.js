@@ -4,7 +4,13 @@ angular.module('governorApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ui.gravatar',
+  'ngAnimate',
+  'angularFileUpload',
+  'Cartogram',
+  'ngRoute',
+  'ui.knob',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

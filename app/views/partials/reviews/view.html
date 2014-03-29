@@ -1,7 +1,4 @@
 
-<div ng-include="'partials/navbar.html'"></div>
-
-
 <div class="view">
     <section class="section section--mast">
         <div class="row">
@@ -15,16 +12,10 @@
         <div class="row">
             <div class="grid ">
                 <div class="grid__item  five-twelfths lap-seven-twelfths palm-one-whole" >
-                <div data-ng-show="global.user._id == review.user._id">
-                    <a class="btn" href="/#!/reviews/{{review._id}}/edit">
-                        edit
-                    </a>
-                    <a class="btn" data-ng-click="remove();">
-                        detlet
-                    </a>
-                </div>
-                    {{currentUser._id}}
-                    <p>Reviewed by {{review.user.name}} on {{review.created | date:'medium'}}</p>
+                    <div class="profile--small">
+                        <img class="profile__img" gravatar-src="'{{review.user.email}}'" gravatar-size="30">
+                        <span class="profile__name">Reviewed by {{review.user.name}} on {{review.created | date:'medium'}}</span>
+                    </div>    
                     <h2>{{review.title}}</h2>
                     <div>{{review.content}}</div>
                 </div>

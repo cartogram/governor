@@ -31,6 +31,15 @@ $body-face: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-transition-speed : .2s;
 $input-size: 18px;
 
+$zindex-navbar:            1000 !default;
+$zindex-dropdown:          1000 !default;
+$zindex-popover:           1010 !default;
+$zindex-tooltip:           1030 !default;
+$zindex-navbar-fixed:      1030 !default;
+$zindex-modal-background:  1040 !default;
+$zindex-modal:             1050 !default;
+
+
 /*------------------------------------*\
     $DEFAULTS
 \*------------------------------------*/
@@ -110,7 +119,7 @@ $responsive-extra:  false!default;
  * Responsive push and pull produce a LOT of code, only turn them on if you
  * definitely need them.
  */
-$push:              false!default;
+$push:              true;
 /**
  * Note: `$push` variable above must be set to true before enabling these.
  */
@@ -226,8 +235,8 @@ $use-breadcrumb:    false!default;
 $use-media:         false!default;
 $use-marginalia:    false!default;
 $use-island:        false!default;
-$use-block-list:    false!default;
-$use-matrix:        false!default;
+$use-block-list:    true;
+$use-matrix:        true;
 $use-split:         false!default;
 $use-this-or-this:  false!default;
 $use-link-complex:  false!default;

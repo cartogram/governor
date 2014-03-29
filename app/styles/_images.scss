@@ -1,0 +1,16 @@
+
+%img--block {
+	&, img {
+		display: block;
+		margin:auto;
+	}
+}
+
+
+.img--circle {
+	@extend %img--block;
+	&, img {
+		@include border-radius(50%);
+		
+	}
+}

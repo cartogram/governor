@@ -1,17 +1,32 @@
-
-<div ng-include="'partials/navbar.html'"></div>
-
-
 <div class="view" ng-init="findOne()">
-    <section class="section section--mast">
-        <div class="row">
-            <div class="grid grid--center">
-                <div class="grid__item text--center five-twelfths lap-seven-twelfths palm-one-whole">
-                    <h1>{{creative.name}}</h1>
-                    <p>{{creative.description}}</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+	<section class="section">
+		<div class="row">
+			<div class="grid  grid--center">
+				<div class="container grid__item ten-twelfths lap-seven-twelfths palm-one-whole">
+					<h1>{{creative.name}}</h1>
+					<p>{{creative.description}}</p>
+					<p ng-controller="CreateReviewCtrl"><a ng-click="start(creative)">review {{creative.name}}</a></p>
+					<div class="grid">
+						<div class="grid__item six-twelfths">
+							<h3>Reviews</h3>
+							<ul>
+								<li ng-repeat="review in reviews">
+									{{review.user.name}}
+									<p ng-repeat="question in review.questions">
+										<span>{{question.question}} : </span>
+										<span>{{question.answer}}</span>
+									</p>	
+								</li>
+							</ul>
+						</div><!--
+						--><div class="grid__item  four-twelfths">
+							<h3>Owner</h3>
+							<p>{{creative.owner.name}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+		
 </div>

@@ -3,42 +3,55 @@
 		<div class="row">
 			<div class="grid">
 				<div class="grid__item one-whole">
-					<p>You are Reviewing {{ creative.name }}</p>
+					<p>You are Reviewing {{ creative.name }} </p><a class="pull--right" target="_blank" href="/api/reviews/{{review._id}}">view source</a>
 				</div>
 			</div>	
 		</div>
 	</header>
-	<section class="section">
+	<section ng-repeat="stage in review.stages ">
+		<section class="section section--fill" cg-fill-view-port  >
+			
+			<div class="row">
+				<div class="grid">
+					<div class="centered--v--h grid__item one-whole text--center">
+					
+						<h1>{{stage.title}}</h1>
+					</div>
+				</div>	
+			</div>
+		</section>
+
+		<section class="section section--fill" cg-fill-view-port  ng-repeat="question in stage.questions ">
+			<div class="row">
+				<div class="grid">
+					<div class="centered--v text--right grid__item four-twelfths text--center">
+						
+						<knob knob-data="data"  ng-model="question.answer" knob-max='max' knob-options="knobOptions"></knob>
+						
+					</div>
+					<div class="centered--v grid__item six-twelfths push--four-twelfths ">
+						
+						<h3>{{question.question}}</h3>
+					</div>
+					
+				</div>	
+			</div>
+			
+		</section>
+		
+	</section>
+	<section class="section section--fill" cg-fill-view-port  >
 		<div class="row">
 			<div class="grid">
-				<div class="grid__item one-whole">
-					<form class="form-horizontal col-md-6" role="form" data-ng-submit="update()">
-						
-
-
-
-
-						<div class="form-group">
-							<label for="title" class="col-md-2 control-label">Title</label>
-							<div class="col-md-10">
-								<input type="text" class="text-input" data-ng-model="review.title" id="title" placeholder="Title" required>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="content" class="col-md-2 control-label">Content</label>
-							<div class="col-md-10">
-								<textarea data-ng-model="review.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-md-offset-2 col-md-10">
-								<button type="submit" class="btn btn-default">Submit</button>
-							</div>
-						</div>
-					</form>
+				<div class="centered--v--h grid__item one-whole text--center">
+					<a type="submit" ng-click="update()" class="btn btn--large  btn--primary">Submit</a> 
+				
 				</div>
 			</div>	
 		</div>
 		
 	</section>
+
+
+	
 </section>

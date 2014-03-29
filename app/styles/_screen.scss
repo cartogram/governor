@@ -1,5 +1,5 @@
 html {
-    -webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
 }
 
 @include color-setup("white", $color: $white);
@@ -8,29 +8,60 @@ body {
 	background:$grey-light;
 }
 
+.container {
+	background: $white;
+	position: relative;
+	border-top:1px solid  $grey;
+	border-bottom: 1px solid  $grey;
+		&:after,
+		&:before {
+			background: $grey;
+			content: ' ';
+			width:1px;
+			top:0;
+			bottom:0;
+			height:auto;
+			position: absolute;
+			left:-1px;
+		}
+		&:before {
+			right:-1px;
+			left:auto;
+		}
+	}
 
-.row {
-	max-width:1200px;
-	width:100%;
-	margin:auto;
-	position:relative;
-}
+	.row {
+		max-width:1200px;
+		width:100%;
+		margin:auto;
+		position:relative;
+	}
 
-.section {
-	padding:0 $half-spacing-unit;
-}
-.section--fixed {
-    position:fixed;
-    left:0;
-    right:0;
-    background:$grey-light;
-    z-index: 1;
-    padding:$base-spacing-unit;
-    p {
-        margin:0;
-    }
-}
+	.section {
+		padding:0 $half-spacing-unit;
+		position: relative;
+	}
 
-.section--mast {
-    padding-top: $base-spacing-unit * 2;
-}
+	.section--fill {
+		&,
+		> .row,
+		> .row > .grid {
+			height:100%;
+		} 
+	}
+	.section--fixed {
+		position:fixed;
+		left:0;
+		right:0;
+		background:$grey-light;
+		z-index: 1;
+		padding:$base-spacing-unit;
+		bottom:0;
+		p {
+			margin:0;
+		}
+	}
+
+	.section--mast {
+		padding-top: $base-spacing-unit * 2;
+	}

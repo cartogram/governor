@@ -1,25 +1,32 @@
-<div ng-include="'partials/navbar.html'"></div>
-
-
 <div class="view">
-    <section class="section section--mast">
-        <div class="row">
-            <div class="grid grid--center">
-                <div class="grid__item  one-whole">
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section" data-ng-init="find()">
-        <div class="row">
-            <div class="grid ">
-                <div class="grid__item  five-twelfths lap-seven-twelfths palm-one-whole" data-ng-repeat="review in reviews">
-                    <p>Reviewed by {{review.user.name}} on {{review.created | date:'medium'}}</p>
-                    <h2><a data-ng-href="/reviews/{{review._id}}">{{review.title}}</a></h2>
-                    <div>{{review.content}}</div>
-                </div>
-            </div>
-        </div>
-        <h1 class="text--center" data-ng-hide="!reviews || reviews.length">No reviews yet. <br> Why don't you <a href="/reviews/create">Create One</a>?</h1>
-    </section>
+	<section class="section section--mast">
+		<div class="row">
+			<div class="grid grid--center">
+				<div class="grid__item  one-whole">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section" data-ng-init="find()">
+		<div class="row">
+			<div class="grid ">
+				<div class="grid__item  five-twelfths lap-seven-twelfths palm-one-whole" data-ng-repeat="review in reviews">
+					<div class="grid soft--ends">
+						<div class="grid__item  two-twelfths ">
+							<img ng-src="http://placehold.it/150x150">
+						</div><!--
+						--><div class="grid__item  ten-twelfths">
+							<h5><a data-ng-href="/reviews/{{review._id}}">{{review.creative.name}}</a> / <a class="milli" data-ng-href="/creative/{{review.creative._id}}">profile</a></h5>
+
+							<div class="profile--small">
+								<img class="profile__img" gravatar-src="'{{review.user.email}}'" gravatar-size="25">
+								<span class="profile__name">Reviewed by {{review.user.name}} on {{review.created | date:'MMM d, yyyy'}}</span>
+							</div> 
+						</div>        
+					</div>	
+				</div>
+			</div>
+		</div>
+		<h1 class="text--center" data-ng-hide="!reviews || reviews.length">No reviews yet. <br> Why don't you <a href="/reviews/create">Create One</a>?</h1>
+	</section>
 </div>

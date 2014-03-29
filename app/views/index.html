@@ -18,14 +18,20 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <script src="scripts/modernizr-custom.js"></script>
   </head>
   <body ng-app="governorApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!-- Grab the off canvas nav -->
+    <div class="navigation--push" ng-include="'partials/navigation-push'"></div>
+
+    <div class="header" ng-include="'partials/navbar'"></div>
+
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="viewcontainer js-site" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -45,14 +51,27 @@
 
     <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/jquery-waypoints/waypoints.js"></script>
+    <script src="bower_components/jquery.easing/js/jquery.easing.min.js"></script>
+    <script src="bower_components/angular-gravatar/build/md5.js"></script>
+    <script src="bower_components/angular-gravatar/build/angular-gravatar.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ng-file-upload/angular-file-upload-shim.js"></script>
+    <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
+    <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-knob/src/angular-knob.js"></script>
     <!-- endbower -->
+    <script src="bower_components/jquery-knob/js/jquery.knob.js"></script>
     <!-- endbuild -->
+
+    <script src="thirdParty/xml2json/xml2json.js"></script>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
@@ -71,7 +90,9 @@
         <script src="scripts/services/creative.js"></script>
         <script src="scripts/controllers/creatives.js"></script>
         <script src="scripts/controllers/createReview.js"></script>
+        <script src="scripts/directives/Cartogram.js"></script>
         <!-- endbuild -->
+
         <script type="text/javascript">
           (function(d) {
             var config = {

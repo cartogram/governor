@@ -1,22 +1,8 @@
 'use strict';
 
 angular.module('governorApp')
-.controller('CreativesCtrl', function ($scope, $routeParams, $location, Global, Creatives) {
+.controller('CreativesCtrl', function ($scope, $routeParams, $location, Global, Creatives, Reviews) {
 	$scope.global = Global;
-
-	$scope.create = function() {
-		var creative = new Creatives({
-			name: this.name,
-			description: this.description
-		});
-		creative.$save(function(response) {
-			$location.path('creatives/' + response._id);
-		});
-
-		this.name = '';
-		this.description = '';
-	};
-
 	$scope.remove = function(creative) {
 		if (creative) {
 			creative.$remove();
@@ -56,6 +42,9 @@ angular.module('governorApp')
 			creativeId: $routeParams.creativeId
 		}, function(creative) {
 			$scope.creative = creative;
+		});
+		Reviews.query({creative:$routeParams.creativeId}, function(reviews) {
+			$scope.reviews = reviews;
 		});
 	};
 });

@@ -97,7 +97,7 @@
  *
  */
  .form-fields{
- 	&.collapse {
+ 	&.condense {
  		padding-top:$base-spacing-unit;
  		> li {
  			margin:0;
@@ -113,7 +113,7 @@
  			border-bottom:1px solid $grey-medium;
  		}
  	}
- 	&.collapse--inline {
+ 	&.condense--inline {
  		>li {
  			margin:0;
  			display:inline-block;

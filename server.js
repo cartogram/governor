@@ -33,6 +33,10 @@ require('./lib/config/dummydata');
 // Passport Configuration
 var passport = require('./lib/config/passport');
 
+// Initialize AWS
+var AWS = require('aws-sdk');
+AWS.config.loadFromPath('./lib/config/aws.json');
+
 var app = express();
 
 // Express settings

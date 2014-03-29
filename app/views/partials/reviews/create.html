@@ -1,26 +1,18 @@
-<div ng-include="'partials/navbar.html'"></div>
 <div class="view">
-	<section class="section section--mast">
+	
+	<section class="section section--fill " cg-fill-view-port >
 		<div class="row">
 			<div class="grid grid--center">
-				<div class="grid__item text--center five-twelfths lap-seven-twelfths palm-one-whole">
+				<div class="grid__item centered--v--h ten-twelfths">
 					<h1 class="gamma">Search for a creative to review</h1>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="section ">
-		<div class="row">
-			<div class="grid grid--center">
-				<div class="grid__item one-whole">
 					<form role="form" novalidate >
-						<ul class="form-fields collapse">
+						<ul class="form-fields condense">
 							
 							<li class="" >
 								<div class="grid grid--full">
 									<div class="grid__item nine-twelfths">
 										<label class="visuallyhidden">Seach</label>
-										<input type="search" class="text-input" ng-model="searchText" id="Search" placeholder="Search for a creative" required/>
+										<input autocomplete="off" type="search" class="text-input" ng-model="searchText" id="Search" placeholder="Search for a creative" required/>
 									</div><!--
 									--><div class="grid__item three-twelfths">	
 
@@ -31,7 +23,7 @@
 							</li>
 						</ul>
 						<ul class="list--blocks">
-							<li ng-repeat="creative in creatives">
+							<li class="list--blocks__item" ng-repeat="creative in creatives">
 								<a ng-click="start(creative)">{{creative.name}}</a>
 							</li>
 						</ul>	

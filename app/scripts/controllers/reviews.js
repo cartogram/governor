@@ -5,7 +5,16 @@ angular.module('governorApp')
 	
 	$scope.global = Global;
 
-	
+	$scope.knobOptions = {
+		'width':'100%',
+		'fgColor':'#1ABC9C',
+		'skin': 'tron',
+		'thickness': 0.15,
+		'lineCap' : 'round',
+		'displayPrevious': true,
+		'min' : 0,
+		'max' : 10
+	};
 
 	$scope.remove = function(review) {
 		if (review) {
@@ -29,7 +38,15 @@ angular.module('governorApp')
 			review.updated = [];
 		}
 		review.updated.push(new Date().getTime());
-
+		for (var i in review.stages) {
+			var total;
+			for (var x in review.stages[i].questions) {
+				total += review.stages[i].questions[x].answer;
+				console.log(review.stages[i].questions[x]);
+			}
+			console.log(total);
+			console.log(review.stages[i].total);
+		}
 		review.$update(function() {
 			$location.path('reviews/' + review._id);
 		});

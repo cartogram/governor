@@ -1,0 +1,232 @@
+/*
+	
+$Push
+
+*/
+
+.state-nav-is-shown {
+}
+
+.navigation--push {
+	height:0px;
+	width:auto;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index: 12;
+	transition:transform $base-transition-speed  ease, height $base-transition-speed  ease;
+	transform:translateY(-100%);
+	padding:0 $base-spacing-unit ;
+	&:before {
+		content:'';
+		position:absolute;
+		top:0%;
+		left:-150%;
+		right:-150%;
+		bottom:0%;
+		height:auto;
+		width:auto;
+		background: linear-gradient(45deg, rgba($primary, .95) 0%,rgba($secondary, .95) 100%);
+	}
+	.navigation--push__inner {
+
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		color:$white;
+		> .navigation--push__content {
+			list-style: none;
+			padding: 0;
+			margin: 0 auto;
+			height: 100%;
+			position: relative;
+			opacity: 0.01;
+			transition: opacity 0.5s;
+			
+		}
+	}
+	
+
+
+	.state-nav-is-shown & {
+		opacity:1;
+		transform:translateY(0%);
+		height:100px;
+		.navigation--push__inner {
+			
+			> .navigation--push__content {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.state-nav-is-shown  {
+	// overflow:hidden;
+	// .container, 
+	// .footer {
+	//     opacity:0.01 !important;
+
+	// }
+}
+
+/*------------------------------------*\
+	
+	$Navigation Trigger Icon
+
+
+	/**
+	*   A reusible little trigger Icon
+	*/
+
+	/**
+	*   Vars
+	*/
+
+	$nav-trigger-icon-spacing-unit : $base-spacing-unit;
+	$nav-trigger-transition-speed : 0.2s;
+
+
+/*------------------------------------*\
+	
+	$icon
+
+	*/
+
+
+	.nav__trigger {
+		width:100%;
+		@include media-query(palm) {
+			margin-right:0 !important;
+		}
+		> a {
+			display: block !important;
+			height: 18px;
+			width: 18px;
+			position:relative;
+		}
+	}
+
+	.nav__trigger__icon {
+		position: absolute;
+		display: block;
+		@extend .centered--v--h;
+		width: 18px;
+		height: 2px;
+		font-size: 0px;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		transition:background $nav-trigger-transition-speed;
+		&:before,
+		&:after {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: '';
+			transition:all $nav-trigger-transition-speed;
+
+
+		}
+
+		&:before {
+			transform:translateY(-200%);
+		}
+		&:after {
+			transform:translateY(200%);
+		}
+
+		&,
+		&:before,
+		&:after {
+			background: $primary ;
+			
+		}
+		
+		&:hover,
+		.nav__trigger:hover & {
+			&, 
+			&:before,
+			&:after {
+				background:$secondary;
+			}
+		}
+		.state-nav-is-shown &:before,
+		.state-nav-is-shown &:after {
+			transform:translateY(0%);
+			background: $primary;
+		}
+
+	}
+
+
+	.nav__close {
+		height: 45px;
+		width: 45px;
+		position: absolute;
+		z-index: 10;
+		cursor: pointer;
+		padding: 14px;
+		left: 8px;
+		top: -$base-spacing-unit;
+		border:none !important;
+	}
+
+	.nav__close__icon {
+		position: absolute;
+		display: block;
+		top:10px;
+		width: 18px;
+		height: 2px;
+		font-size: 0px;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		cursor:pointer;
+		&:before,
+		&:after {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: '';
+			transition:all $nav-trigger-transition-speed;
+			
+
+		}
+		
+		&:before {
+			transform:rotate(-45deg);
+		}
+		&:after {
+			transform:rotate(45deg);
+		}
+
+		&:before,
+		&:after {
+			background: $white ;
+			
+		}
+		
+		&:hover,
+		.nav__close:hover & {
+			
+			&:before,
+			&:after {
+				background:$primary;
+			}
+		}
+		
+
+	}
+

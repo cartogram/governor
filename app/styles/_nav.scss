@@ -1,8 +1,10 @@
 %navbar-style {
-	margin:0;
+	margin: 0;
 	@include font-size(13px);
 	letter-spacing: .05em;
 	line-height: 3.5em;
+	text-align:center;
+
 	a {
 	}
 }
@@ -13,12 +15,40 @@
 
 .nav--global {
 	@extend %navbar-style;
-	text-align:right;
+	text-align: center;
+	width: 100%;
+	max-width: 70px;
+	
 	li {
-		padding:0 $half-spacing-unit;
+		display:block;
+		height:60px;
+		text-align: center;
+		position: relative;
+		a {
+			@extend .centered--v--h;
+			margin:auto;
+		}
 	}
 }
 
+.nav--user {
+	@extend %navbar-style;
+	text-align: center;
+	width: 100%;
+	max-width: 70px;
+	li {
+		display:block;
+		margin:auto;
+	}
+}
+.nav--pages {
+	@extend %navbar-style;
+	margin-top:0;
+	text-align: left;
+	a {
+		color:$white;
+	}
+}
 
 .nav--btn {
 	
