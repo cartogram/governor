@@ -4,30 +4,31 @@
 		<div class="row">
 			<div class="grid grid--center">
 				<div class="grid__item centered--v--h ten-twelfths">
-					<h1 class="gamma">Search for a creative to review</h1>
+					<h1 class="gamma">Search for a creative to review <small class="loader milli" ng-show="loadingLocations" >Loading</small></h1>
+					<p class="soft--top " ng-show="selectedCreative">Can't find the creative you are looking for? <a> add a new cretive</a></p>
 					<form role="form" novalidate >
 						<ul class="form-fields condense">
 							
 							<li class="" >
 								<div class="grid grid--full">
-									<div class="grid__item nine-twelfths">
-										<label class="visuallyhidden">Seach</label>
-										<input autocomplete="off" type="search" class="text-input" ng-model="searchText" id="Search" placeholder="Search for a creative" required/>
-									</div><!--
-									--><div class="grid__item three-twelfths">	
+									
+									<input type="text" class="text-input" ng-model="selectedCreative" placeholder="Start typing the name of the creative..." typeahead="creative as creative.name for creative in getCreative($viewValue) | filter:$viewValue" typeahead-loading="loadingLocations" class="form-control" typeahead-template-url="customTemplate.html" typeahead-on-select="start(selectedCreative)">
+    								
 
-										<button class="btn btn--large btn--primary btn--full" ng-click="search(searchText)">Search</button>
-									</div>
 								</div>		
 
 							</li>
 						</ul>
-						<ul class="list--blocks">
-							<li class="list--blocks__item" ng-repeat="creative in creatives">
-								<a ng-click="start(creative)">{{creative.name}}</a>
-							</li>
-						</ul>	
-						<p class="soft--top text--center" ng-hide="!creatives || creatives.length">Can't find the creative you are looking for? <a> add a new cretive</a></p>
+
+						<script type="text/ng-template" id="customTemplate.html">
+						  <a>
+						      <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
+						      <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+						      - <span bind-html-unsafe="match.model.description | typeaheadHighlight:query"></span>
+						  </a>
+						</script>
+						
+						
 
 								<!-- 
 							<li >

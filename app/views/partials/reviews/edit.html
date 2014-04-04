@@ -15,7 +15,9 @@
 				<div class="grid">
 					<div class="centered--v--h grid__item one-whole text--center">
 					
-						<h1>{{stage.title}}</h1>
+						<h1>{{stage.title}} -> {{stage.total}}</h1>
+
+
 					</div>
 				</div>	
 			</div>
@@ -31,7 +33,10 @@
 					</div>
 					<div class="centered--v grid__item six-twelfths push--four-twelfths ">
 						
-						<h3>{{question.question}}</h3>
+						<h3>{{question.question}} {{question.answer}}</h3>
+
+						<a ng-click="update(question)">Next</a>
+					
 					</div>
 					
 				</div>	
@@ -44,7 +49,7 @@
 		<div class="row">
 			<div class="grid">
 				<div class="centered--v--h grid__item one-whole text--center">
-					<a type="submit" ng-click="update()" class="btn btn--large  btn--primary">Submit</a> 
+					<a type="submit" ng-click="submit()" class="btn btn--large  btn--primary">Submit</a> 
 				
 				</div>
 			</div>	

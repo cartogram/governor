@@ -1,0 +1,165 @@
+$toggle-width:50px;
+
+
+//Dropdown Navigation
+
+
+// The dropdown wrapper (div)
+.dropdown {
+	position: relative;
+	margin-top:$half-spacing-unit;
+	.dropdown-toggle {
+		background:transparent;
+		border:1px solid transparent;
+		width:100%;
+		height:70px;
+		cursor:pointer;
+		display: block;
+		position: relative;
+		.user--image {
+			display: block;
+			height:30px;
+			width:30px;
+			@extend .img--circle;
+			@extend .centered--v--h;
+		}
+		.user--name {
+			position: absolute;
+			top:0;
+			min-width:200px;
+			transform:rotate(270deg) translateX(-100%);
+			transform-origin:0% 100% ;
+			height:70px;
+			line-height: 70px;
+			margin-left:35px;
+			left:50%;
+			text-align: right;
+			padding:0 $base-spacing-unit;
+		}
+		&:hover {
+			.user--name {
+				opacity: 1;
+			}
+		}
+	}
+
+}
+
+// Prevent the focus on the dropdown toggle when closing dropdowns
+.dropdown-toggle:focus {
+	outline: 0;
+}
+
+// The dropdown menu (ul)
+.dropdown-menu {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	z-index: $zindex-dropdown;
+	display: none; // none by default, but block on "open" of the menu
+	width:calc(100% - 20px);
+	min-width: 200px;
+	list-style: none;
+	background-clip: padding-box;
+	background:$white;
+	padding:$base-spacing-unit 0;
+	border:1px solid $grey;
+	margin:0 $base-spacing-unit 0 -1px;
+	.dropdown & {
+		width:100%;
+		&:before {
+			content:'';
+			right:0;
+			top:0;
+			height:68px;
+			background:$white;
+			width:1px;
+			position:absolute;
+			left:-1px;
+		}
+	}
+	&.pull-right {
+		right: 100%;
+		left: auto;
+	}
+
+	// Links within the dropdown menu
+	> li > a {
+		display: block;
+		clear: both;
+		padding:0 $base-spacing-unit;
+		line-height: 2;
+		white-space: nowrap; // prevent links from randomly breaking onto new lines
+	}
+	// Hover/Focus state
+	& > li > a {
+		&:hover,
+		&:focus {
+
+		}
+	}
+
+	// Active state
+	& > .active > a {
+		&,
+		&:hover,
+		&:focus {
+			
+		}
+	}
+
+	// Disabled state
+	//
+	// Gray out text and ensure the hover/focus state remains gray
+
+	& > .disabled > a {
+		&,
+		&:hover,
+		&:focus {
+
+		}
+	}
+	// Nuke hover/focus effects
+	& > .disabled > a {
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			background-color: transparent;
+			background-image: none; // Remove CSS gradient
+			cursor: not-allowed;
+		}
+	}
+}
+
+
+//Dropdown Typeahead
+
+
+
+// Open state for the dropdown
+.open {
+	
+	.dropdown-toggle {
+		background:$white;
+		border:1px solid $grey;
+	}
+	// Show the menu
+	> .dropdown-menu {
+		display: block;
+	}
+
+	// Remove the outline when :focus is triggered
+	> a {
+		outline: 0;
+	}
+}
+
+// Backdrop to catch body clicks on mobile, etc.
+.dropdown-backdrop {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: ($zindex-dropdown - 10);
+}

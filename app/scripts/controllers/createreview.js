@@ -7,6 +7,21 @@ angular.module('governorApp').controller('CreateReviewCtrl', function ($scope, $
 			$scope.creatives = creatives;
 		});
 	};
+
+	$scope.getCreative = function(val) {
+		var creatives = Creatives.query({q:val});
+		return creatives.$promise.then(function(res) {
+			var creatives = [];
+			angular.forEach(res, function(item){
+				creatives.push(item);
+			});
+			console.log(creatives);
+			return creatives;
+		});
+	};
+
+
+
 	$scope.start = function(creative) {
 		var review = new Reviews({
 			state: 'draft',

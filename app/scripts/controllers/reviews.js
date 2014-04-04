@@ -32,7 +32,8 @@ angular.module('governorApp')
 		}
 	};
 
-	$scope.update = function() {
+	$scope.update = function(question) {
+		console.log(question.answer);
 		var review = $scope.review;
 		if (!review.updated) {
 			review.updated = [];
@@ -42,14 +43,24 @@ angular.module('governorApp')
 			var total;
 			for (var x in review.stages[i].questions) {
 				total += review.stages[i].questions[x].answer;
-				console.log(review.stages[i].questions[x]);
+				//console.log(review.stages[i].questions[x]);
 			}
-			console.log(total);
-			console.log(review.stages[i].total);
+			// console.log(total);
+			// console.log(review.stages[i].total);
 		}
+		
+	};
+
+	$scope.submit = function() {
+		var review = $scope.review;
+		$scope.update();
 		review.$update(function() {
 			$location.path('reviews/' + review._id);
 		});
+	};
+
+	$scope.next = function() {
+		console.log('next');
 	};
 
 	$scope.find = function() {
